@@ -25,70 +25,65 @@
     </div>
 
     <!-- Categories -->
-    <div class="flex gap-2 overflow-x-auto whitespace-nowrap mb-6 text-sm pb-2">
-      <button class="bg-white text-black px-4 py-1 rounded-full flex-shrink-0">Кофе</button>
-      <button class="bg-zinc-800 px-4 py-1 rounded-full flex-shrink-0">Завтраки</button>
-      <button class="bg-zinc-800 px-4 py-1 rounded-full flex-shrink-0">Кухня</button>
-      <button class="bg-zinc-800 px-4 py-1 rounded-full flex-shrink-0">Десерты</button>
-      <button class="bg-zinc-800 px-4 py-1 rounded-full flex-shrink-0">Напитки</button>
+    <div class="flex flex-wrap gap-2 justify-center mb-6 text-base pb-2">
+      <button class="bg-white text-black px-6 py-2 rounded-full">Кофе</button>
+      <button class="bg-zinc-800 px-6 py-2 rounded-full">Завтраки</button>
+      <button class="bg-zinc-800 px-6 py-2 rounded-full">Кухня</button>
+      <button class="bg-zinc-800 px-6 py-2 rounded-full">Десерты</button>
+      <button class="bg-zinc-800 px-6 py-2 rounded-full">Напитки</button>
     </div>
 
     <!-- Coffee Classics -->
-    <div class="flex items-center gap-2 mb-4">
-      <div class="w-1 h-6 bg-yellow-400 rounded-full"></div>
-      <h3 class="text-xl italic font-nyght">Классика кофе</h3>
+    <div class="flex items-center justify-between mb-4">
+      <div class="flex items-center gap-2">
+        <div class="w-1 h-6 bg-yellow-400 rounded-full"></div>
+        <h3 class="text-2xl italic font-nyght">Классика кофе</h3>
+      </div>
+      <span class="text-xs text-zinc-400">0.25 / 0.35 мл</span>
     </div>
-    <div class="space-y-4 divide-y divide-zinc-800">
-      <div class="drink-row flex items-center justify-between pt-2 cursor-pointer" data-drink="espresso">
-        <span>Эспрессо</span>
-        <div class="price-options flex gap-2 text-[10px]">
-          <button data-volume="0.25" class="bg-neutral-800 px-4 py-1 rounded-full">150</button>
-        </div>
-      </div>
-      <div class="drink-row flex items-center justify-between pt-2 cursor-pointer" data-drink="americano">
-        <span>Американо</span>
-        <div class="price-options flex gap-2 text-[10px]">
-          <button data-volume="0.25" class="bg-neutral-800 px-4 py-1 rounded-full">150</button>
-          <button data-volume="0.35" class="bg-neutral-800 px-4 py-1 rounded-full">160</button>
-        </div>
-      </div>
-      <div class="drink-row flex items-center justify-between pt-2 cursor-pointer" data-drink="filter">
-        <span>Фильтр</span>
-        <div class="price-options flex gap-2 text-[10px]">
-          <button data-volume="0.35" class="bg-neutral-800 px-4 py-1 rounded-full">170</button>
-        </div>
-      </div>
-      <div class="drink-row flex items-center justify-between pt-2 cursor-pointer" data-drink="flat">
-        <span>Флэт уайт</span>
-        <div class="price-options flex gap-2 text-[10px]">
-          <button data-volume="0.25" class="bg-neutral-800 px-4 py-1 rounded-full">180</button>
-        </div>
-      </div>
+    <div class="space-y-4 divide-y divide-zinc-800 mb-6">
       <div class="drink-row flex items-center justify-between pt-2 cursor-pointer" data-drink="cappuccino">
         <span>Капучино</span>
-        <div class="price-options flex gap-2 text-[10px]">
-          <button data-volume="0.25" class="bg-neutral-800 px-4 py-1 rounded-full">180</button>
-          <button data-volume="0.35" class="bg-neutral-800 px-4 py-1 rounded-full">210</button>
+        <div class="price-options flex gap-2 text-sm">
+          <button data-volume="0.25" class="bg-neutral-800 w-12 h-8 rounded-full">180</button>
+          <button data-volume="0.35" class="bg-neutral-800 w-12 h-8 rounded-full">210</button>
         </div>
       </div>
       <div class="drink-row flex items-center justify-between pt-2 cursor-pointer" data-drink="latte">
         <span>Латте</span>
-        <div class="price-options flex gap-2 text-[10px]">
-          <button data-volume="0.35" class="bg-neutral-800 px-4 py-1 rounded-full">210</button>
+        <div class="price-options flex gap-2 text-sm">
+          <button data-volume="0.35" class="bg-neutral-800 w-12 h-8 rounded-full">210</button>
         </div>
       </div>
+    </div>
+
+    <!-- Author Coffee -->
+    <div class="flex items-center gap-2 mb-4">
+      <div class="w-1 h-6 bg-yellow-400 rounded-full"></div>
+      <h3 class="text-2xl italic font-nyght">Авторский кофе</h3>
+    </div>
+    <div class="space-y-4 divide-y divide-zinc-800 mb-6">
       <div class="drink-row flex items-center justify-between pt-2 cursor-pointer" data-drink="raf">
         <span>Раф</span>
-        <div class="price-options flex gap-2 text-[10px]">
-          <button data-volume="0.35" class="bg-neutral-800 px-4 py-1 rounded-full">230</button>
+        <div class="price-options flex gap-2 text-sm">
+          <button data-volume="0.35" class="bg-neutral-800 w-12 h-8 rounded-full">230</button>
         </div>
       </div>
       <div class="drink-row flex items-center justify-between pt-2 cursor-pointer" data-drink="mocha">
         <span>Мокко</span>
-        <div class="price-options flex gap-2 text-[10px]">
-          <button data-volume="0.35" class="bg-neutral-800 px-4 py-1 rounded-full">230</button>
+        <div class="price-options flex gap-2 text-sm">
+          <button data-volume="0.35" class="bg-neutral-800 w-12 h-8 rounded-full">230</button>
         </div>
       </div>
+    </div>
+
+    <!-- Cold Coffee -->
+    <div class="flex items-center gap-2 mb-4">
+      <div class="w-1 h-6 bg-yellow-400 rounded-full"></div>
+      <h3 class="text-2xl italic font-nyght">Холодный кофе</h3>
+    </div>
+    <div class="space-y-4 divide-y divide-zinc-800">
+      <!-- Напитки пока отсутствуют -->
     </div>
   </div>
   <!-- Drink customization modal -->
@@ -118,12 +113,31 @@
       </div>
       <div class="mb-4">
         <h4 class="mb-2 text-sm">Сиропы</h4>
-        <div class="flex gap-2 overflow-x-auto syrup-options text-xs pb-2">
-          <button class="bg-neutral-800 px-3 py-1 rounded-full flex-shrink-0">Ваниль</button>
-          <button class="bg-neutral-800 px-3 py-1 rounded-full flex-shrink-0">Карамель</button>
-          <button class="bg-neutral-800 px-3 py-1 rounded-full flex-shrink-0">Шоколад</button>
-          <button class="bg-neutral-800 px-3 py-1 rounded-full flex-shrink-0">Орех</button>
-          <button class="bg-neutral-800 px-3 py-1 rounded-full flex-shrink-0">Клен</button>
+        <div class="relative">
+          <button id="syrup-left" class="absolute left-0 top-1/2 -translate-y-1/2 bg-neutral-800 w-8 h-8 rounded-full flex items-center justify-center">&#8249;</button>
+          <div class="flex gap-2 overflow-x-auto syrup-options text-xs pb-2 px-10">
+            <button class="bg-neutral-800 px-3 py-1 rounded-full flex-shrink-0">Карамель</button>
+            <button class="bg-neutral-800 px-3 py-1 rounded-full flex-shrink-0">Солёная карамель</button>
+            <button class="bg-neutral-800 px-3 py-1 rounded-full flex-shrink-0">Ваниль</button>
+            <button class="bg-neutral-800 px-3 py-1 rounded-full flex-shrink-0">Шоколад</button>
+            <button class="bg-neutral-800 px-3 py-1 rounded-full flex-shrink-0">Попкорн</button>
+            <button class="bg-neutral-800 px-3 py-1 rounded-full flex-shrink-0">Миндаль</button>
+            <button class="bg-neutral-800 px-3 py-1 rounded-full flex-shrink-0">Кокос</button>
+            <button class="bg-neutral-800 px-3 py-1 rounded-full flex-shrink-0">Фундук</button>
+            <button class="bg-neutral-800 px-3 py-1 rounded-full flex-shrink-0">Фисташка</button>
+            <button class="bg-neutral-800 px-3 py-1 rounded-full flex-shrink-0">Вишня</button>
+            <button class="bg-neutral-800 px-3 py-1 rounded-full flex-shrink-0">Малина</button>
+            <button class="bg-neutral-800 px-3 py-1 rounded-full flex-shrink-0">Ежевика</button>
+            <button class="bg-neutral-800 px-3 py-1 rounded-full flex-shrink-0">Чёрная смородина</button>
+            <button class="bg-neutral-800 px-3 py-1 rounded-full flex-shrink-0">Бузина</button>
+            <button class="bg-neutral-800 px-3 py-1 rounded-full flex-shrink-0">Яблоко</button>
+            <button class="bg-neutral-800 px-3 py-1 rounded-full flex-shrink-0">Банан</button>
+            <button class="bg-neutral-800 px-3 py-1 rounded-full flex-shrink-0">Маракуйя</button>
+            <button class="bg-neutral-800 px-3 py-1 rounded-full flex-shrink-0">Мята</button>
+            <button class="bg-neutral-800 px-3 py-1 rounded-full flex-shrink-0">Лемонграсс</button>
+            <button class="bg-neutral-800 px-3 py-1 rounded-full flex-shrink-0">Лаванда</button>
+          </div>
+          <button id="syrup-right" class="absolute right-0 top-1/2 -translate-y-1/2 bg-neutral-800 w-8 h-8 rounded-full flex items-center justify-center">&#8250;</button>
         </div>
       </div>
       <div class="mb-4">
@@ -135,18 +149,18 @@
       </div>
       <div class="mb-4">
         <h4 class="mb-2 text-sm">Сахар</h4>
-        <div class="flex gap-2 sugar-options text-xs">
-          <button class="bg-neutral-800 px-3 py-1 rounded-full">0</button>
-          <button class="bg-white text-black px-3 py-1 rounded-full">1</button>
-          <button class="bg-neutral-800 px-3 py-1 rounded-full">2</button>
+        <div class="flex items-center gap-4">
+          <button id="sugar-minus" class="bg-neutral-800 w-8 h-8 rounded-full flex items-center justify-center">-</button>
+          <span id="sugar-count">1</span>
+          <button id="sugar-plus" class="bg-neutral-800 w-8 h-8 rounded-full flex items-center justify-center">+</button>
         </div>
       </div>
       <div class="mb-4">
-        <h4 class="mb-2 text-sm">Количество</h4>
+        <h4 class="mb-2 text-sm">Порции</h4>
         <div class="flex items-center gap-4">
-          <button id="minus" class="bg-neutral-800 w-8 h-8 rounded-full flex items-center justify-center">-</button>
-          <span id="quantity">1</span>
-          <button id="plus" class="bg-neutral-800 w-8 h-8 rounded-full flex items-center justify-center">+</button>
+          <button id="portion-minus" class="bg-neutral-800 w-8 h-8 rounded-full flex items-center justify-center">-</button>
+          <span id="portion-quantity">1</span>
+          <button id="portion-plus" class="bg-neutral-800 w-8 h-8 rounded-full flex items-center justify-center">+</button>
         </div>
       </div>
       <button id="add-to-order" class="border border-white text-white w-full py-2 rounded-full flex items-center justify-center gap-2">
