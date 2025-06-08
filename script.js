@@ -13,6 +13,28 @@ function toggleButtonActive(buttonGroupSelector) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Открытие и закрытие подменю
+  const drinkRow = document.getElementById('cappuccino-option');
+  const overlay = document.getElementById('drink-overlay');
+  const menu = document.getElementById('drink-menu');
+  const closeBtn = document.getElementById('close-overlay');
+
+  function openMenu() {
+    overlay.classList.remove('hidden');
+    requestAnimationFrame(() => menu.classList.remove('translate-y-full'));
+  }
+
+  function closeMenu() {
+    menu.classList.add('translate-y-full');
+    setTimeout(() => overlay.classList.add('hidden'), 300);
+  }
+
+  drinkRow?.addEventListener('click', openMenu);
+  closeBtn?.addEventListener('click', closeMenu);
+  overlay?.addEventListener('click', e => {
+    if (e.target === overlay) closeMenu();
+  });
+
   // Группы переключателей
   toggleButtonActive('.milk-options');
   toggleButtonActive('.volume-options');
