@@ -24,15 +24,15 @@
       <p class="text-sm mt-1 text-zinc-400">Капучино<br>Эфиопия, молочный вкус, сладкое тело</p>
     </div>
 
-    <div class="flex justify-between mb-4">
+    <div class="flex justify-between mb-4 volume-options">
       <button class="bg-zinc-700 px-4 py-1 rounded-full">180</button>
       <button class="bg-white text-black px-4 py-1 rounded-full">210</button>
     </div>
 
     <div class="mb-4">
       <p class="mb-1">Молоко</p>
-      <div class="flex flex-wrap gap-2">
-        <button class="bg-zinc-800 px-3 py-1 rounded-full">Обычное</button>
+      <div class="milk-options flex flex-wrap gap-2">
+        <button class="bg-white text-black px-3 py-1 rounded-full">Обычное</button>
         <button class="bg-zinc-800 px-3 py-1 rounded-full">Кокос</button>
         <button class="bg-zinc-800 px-3 py-1 rounded-full">Безлактоз</button>
         <button class="bg-zinc-800 px-3 py-1 rounded-full">Миндаль</button>
@@ -41,7 +41,7 @@
 
     <div class="mb-4">
       <p class="mb-1">Где будете пить?</p>
-      <div class="flex gap-2">
+      <div class="place-options flex gap-2">
         <button class="bg-white text-black px-3 py-1 rounded-full">Здесь</button>
         <button class="bg-zinc-800 px-3 py-1 rounded-full">С собой</button>
       </div>
@@ -49,22 +49,23 @@
 
     <div class="mb-4">
       <p class="mb-1">Сахар</p>
-      <div class="flex items-center gap-2">
+      <div class="sugar-options flex gap-2">
         <button class="bg-white text-black px-3 py-1 rounded-full">Нет</button>
-        <span>0</span>
+        <button class="bg-zinc-800 px-3 py-1 rounded-full">1</button>
+        <button class="bg-zinc-800 px-3 py-1 rounded-full">2</button>
       </div>
     </div>
 
     <div class="mb-6">
       <p class="mb-1">Количество</p>
       <div class="flex items-center gap-2">
-        <button class="bg-zinc-800 px-3 py-1 rounded-full">-</button>
-        <span>1</span>
-        <button class="bg-zinc-800 px-3 py-1 rounded-full">+</button>
+        <button id="minus" class="bg-zinc-800 px-3 py-1 rounded-full">-</button>
+        <span id="quantity">1</span>
+        <button id="plus" class="bg-zinc-800 px-3 py-1 rounded-full">+</button>
       </div>
     </div>
 
-    <button class="w-full border-2 border-white py-2 rounded-full flex items-center justify-center gap-2">
+    <button id="add-to-order" class="w-full border-2 border-white py-2 rounded-full flex items-center justify-center gap-2">
       <span>&rarr;</span> Добавить в заказ
     </button>
   </div>
