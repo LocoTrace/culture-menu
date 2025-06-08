@@ -1,17 +1,27 @@
 // Минимальная интерактивная логика меню
 
-// Подсветка выбранных кнопок
-function toggleButtonActive(buttonGroupSelector, allowToggleOff = false) {
+// Подсветка выбранных кнопок с возможностью отмены
+function toggleButtonActive(buttonGroupSelector) {
   document.querySelectorAll(buttonGroupSelector).forEach(group => {
     group.addEventListener('click', e => {
-      if (e.target.tagName === 'BUTTON') {
-        if (allowToggleOff && e.target.classList.contains('bg-white')) {
-          e.target.classList.remove('bg-white', 'text-black');
-          return;
-        }
-        [...group.children].forEach(btn => btn.classList.remove('bg-white', 'text-black'));
-        e.target.classList.add('bg-white', 'text-black');
+      if (e.target.tagName !== 'BUTTON') return;
+
+      const btn = e.target;
+      const isActive = btn.classList.contains('bg-white');
+
+      if (isActive) {
+        btn.classList.remove('bg-white', 'text-black');
+        btn.classList.add('bg-neutral-800', 'text-white');
+        return;
       }
+
+      [...group.children].forEach(b => {
+        b.classList.remove('bg-white', 'text-black');
+        b.classList.add('bg-neutral-800', 'text-white');
+      });
+
+      btn.classList.remove('bg-neutral-800', 'text-white');
+      btn.classList.add('bg-white', 'text-black');
     });
   });
 }
@@ -34,7 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const volume = selectedVolumes[currentDrink];
     document.querySelectorAll('.volume-options button').forEach(btn => {
       btn.classList.remove('bg-white', 'text-black');
+      btn.classList.add('bg-neutral-800', 'text-white');
       if (volume && btn.dataset.volume === volume) {
+        btn.classList.remove('bg-neutral-800', 'text-white');
         btn.classList.add('bg-white', 'text-black');
       }
     });
@@ -57,17 +69,26 @@ document.addEventListener('DOMContentLoaded', () => {
   // Выбор объёма в списке напитков
   document.querySelectorAll('.price-options').forEach(group => {
     group.addEventListener('click', e => {
-      if (e.target.tagName === 'BUTTON') {
-        const row = group.closest('[data-drink]');
-        if (e.target.classList.contains('bg-white')) {
-          e.target.classList.remove('bg-white', 'text-black');
-          if (row) delete selectedVolumes[row.dataset.drink];
-          return;
-        }
-        [...group.children].forEach(btn => btn.classList.remove('bg-white', 'text-black'));
-        e.target.classList.add('bg-white', 'text-black');
-        if (row) selectedVolumes[row.dataset.drink] = e.target.dataset.volume;
+      if (e.target.tagName !== 'BUTTON') return;
+
+      const row = group.closest('[data-drink]');
+      const btn = e.target;
+
+      if (btn.classList.contains('bg-white')) {
+        btn.classList.remove('bg-white', 'text-black');
+        btn.classList.add('bg-neutral-800', 'text-white');
+        if (row) delete selectedVolumes[row.dataset.drink];
+        return;
       }
+
+      [...group.children].forEach(b => {
+        b.classList.remove('bg-white', 'text-black');
+        b.classList.add('bg-neutral-800', 'text-white');
+      });
+
+      btn.classList.remove('bg-neutral-800', 'text-white');
+      btn.classList.add('bg-white', 'text-black');
+      if (row) selectedVolumes[row.dataset.drink] = btn.dataset.volume;
     });
   });
 
