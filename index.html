@@ -34,56 +34,106 @@
     </div>
 
     <!-- Coffee Classics -->
-    <div class="flex items-center justify-between mb-4">
+    <div class="flex items-center justify-between mt-8 mb-2">
       <div class="flex items-center gap-2">
         <div class="w-1 h-6 bg-yellow-400 rounded-full"></div>
-        <h3 class="text-2xl italic font-nyght">Классика кофе</h3>
+        <h3 class="text-2xl font-bold font-nyght">Классика кофе</h3>
       </div>
       <span class="text-xs text-zinc-400">0.25 / 0.35 мл</span>
     </div>
-    <div class="space-y-4 divide-y divide-zinc-800 mb-6">
-      <div class="drink-row flex items-center justify-between pt-2 cursor-pointer" data-drink="cappuccino">
-        <span>Капучино</span>
-        <div class="price-options flex gap-2 text-sm">
-          <button data-volume="0.25" class="bg-neutral-800 w-12 h-8 rounded-full">180</button>
-          <button data-volume="0.35" class="bg-neutral-800 w-12 h-8 rounded-full">210</button>
+      <div class="space-y-4 divide-y divide-zinc-800 mb-6">
+        <div class="drink-row flex items-center justify-between pt-2 cursor-pointer" data-drink="cappuccino">
+          <span>Капучино</span>
+          <div class="price-options flex gap-2 text-sm">
+            <button data-volume="0.25" class="bg-neutral-800 w-12 h-8 rounded-full">180</button>
+            <button data-volume="0.35" class="bg-neutral-800 w-12 h-8 rounded-full">210</button>
+          </div>
+        </div>
+        <div class="drink-row flex items-center justify-between pt-2 cursor-pointer" data-drink="latte">
+          <span>Латте</span>
+          <div class="price-options flex gap-2 text-sm">
+            <button data-volume="0.35" class="bg-neutral-800 w-12 h-8 rounded-full">210</button>
+          </div>
+        </div>
+        <div class="drink-row flex items-center justify-between pt-2 cursor-pointer" data-drink="raf">
+          <span>Раф</span>
+          <div class="price-options flex gap-2 text-sm">
+            <button data-volume="0.35" class="bg-neutral-800 w-12 h-8 rounded-full">230</button>
+          </div>
+        </div>
+        <div class="drink-row flex items-center justify-between pt-2 cursor-pointer" data-drink="mocha">
+          <span>Мокко</span>
+          <div class="price-options flex gap-2 text-sm">
+            <button data-volume="0.35" class="bg-neutral-800 w-12 h-8 rounded-full">230</button>
+          </div>
         </div>
       </div>
-      <div class="drink-row flex items-center justify-between pt-2 cursor-pointer" data-drink="latte">
-        <span>Латте</span>
-        <div class="price-options flex gap-2 text-sm">
-          <button data-volume="0.35" class="bg-neutral-800 w-12 h-8 rounded-full">210</button>
-        </div>
-      </div>
-    </div>
 
     <!-- Author Coffee -->
-    <div class="flex items-center gap-2 mb-4">
-      <div class="w-1 h-6 bg-yellow-400 rounded-full"></div>
-      <h3 class="text-2xl italic font-nyght">Авторский кофе</h3>
+    <div class="flex items-center justify-between mt-8 mb-2">
+      <div class="flex items-center gap-2">
+        <div class="w-1 h-6 bg-yellow-400 rounded-full"></div>
+        <h3 class="text-2xl font-bold font-nyght">Авторский кофе</h3>
+      </div>
+      <span class="text-xs text-zinc-400">0.35</span>
     </div>
-    <div class="space-y-4 divide-y divide-zinc-800 mb-6">
-      <div class="drink-row flex items-center justify-between pt-2 cursor-pointer" data-drink="raf">
-        <span>Раф</span>
-        <div class="price-options flex gap-2 text-sm">
-          <button data-volume="0.35" class="bg-neutral-800 w-12 h-8 rounded-full">230</button>
+      <div class="space-y-4 divide-y divide-zinc-800 mb-6">
+        <div class="drink-row flex items-center justify-between pt-2 cursor-pointer" data-drink="raspberry-popcorn-raf">
+          <span>Раф малиновая глазурь-попкорн</span>
+          <div class="price-options flex gap-2 text-sm">
+            <button data-volume="0.35" class="bg-neutral-800 w-12 h-8 rounded-full">250</button>
+          </div>
+        </div>
+        <div class="drink-row flex items-center justify-between pt-2 cursor-pointer" data-drink="cheese-latte">
+          <span>Сырный латте</span>
+          <div class="price-options flex gap-2 text-sm">
+            <button data-volume="0.35" class="bg-neutral-800 w-12 h-8 rounded-full">240</button>
+          </div>
+        </div>
+        <div class="drink-row flex items-center justify-between pt-2 cursor-pointer" data-drink="pistachio-latte">
+          <span>Латте фисташковый</span>
+          <div class="price-options flex gap-2 text-sm">
+            <button data-volume="0.35" class="bg-neutral-800 w-12 h-8 rounded-full">250</button>
+          </div>
+        </div>
+        <div class="drink-row flex items-center justify-between pt-2 cursor-pointer" data-drink="cherry-panacotta-latte">
+          <span>Латте вишневая панакота</span>
+          <div class="price-options flex gap-2 text-sm">
+            <button data-volume="0.35" class="bg-neutral-800 w-12 h-8 rounded-full">250</button>
+          </div>
+        </div>
+        <div class="drink-row flex items-center justify-between pt-2 cursor-pointer" data-drink="lemon-meringue-latte">
+          <span>Латте лимонный тарт с меренгой</span>
+          <div class="price-options flex gap-2 text-sm">
+            <button data-volume="0.35" class="bg-neutral-800 w-12 h-8 rounded-full">250</button>
+          </div>
+        </div>
+        <div class="drink-row flex items-center justify-between pt-2 cursor-pointer" data-drink="gingerbread-latte">
+          <span>Латте имбирный пряник</span>
+          <div class="price-options flex gap-2 text-sm">
+            <button data-volume="0.35" class="bg-neutral-800 w-12 h-8 rounded-full">240</button>
+          </div>
         </div>
       </div>
-      <div class="drink-row flex items-center justify-between pt-2 cursor-pointer" data-drink="mocha">
-        <span>Мокко</span>
-        <div class="price-options flex gap-2 text-sm">
-          <button data-volume="0.35" class="bg-neutral-800 w-12 h-8 rounded-full">230</button>
-        </div>
-      </div>
-    </div>
 
     <!-- Cold Coffee -->
-    <div class="flex items-center gap-2 mb-4">
+    <div class="flex items-center gap-2 mt-8 mb-2">
       <div class="w-1 h-6 bg-yellow-400 rounded-full"></div>
-      <h3 class="text-2xl italic font-nyght">Холодный кофе</h3>
+      <h3 class="text-2xl font-bold font-nyght">Холодный кофе</h3>
     </div>
     <div class="space-y-4 divide-y divide-zinc-800">
-      <!-- Напитки пока отсутствуют -->
+      <div class="drink-row flex items-center justify-between pt-2 cursor-pointer" data-drink="ice-latte">
+        <span>Айс-латте</span>
+        <div class="price-options flex gap-2 text-sm">
+          <button data-volume="0.35" class="bg-neutral-800 w-12 h-8 rounded-full">220</button>
+        </div>
+      </div>
+      <div class="drink-row flex items-center justify-between pt-2 cursor-pointer" data-drink="bumblebee">
+        <span>Шмель</span>
+        <div class="price-options flex gap-2 text-sm">
+          <button data-volume="0.35" class="bg-neutral-800 w-12 h-8 rounded-full">250</button>
+        </div>
+      </div>
     </div>
   </div>
   <!-- Drink customization modal -->
