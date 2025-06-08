@@ -1,10 +1,14 @@
 // Минимальная интерактивная логика меню
 
 // Подсветка выбранных кнопок
-function toggleButtonActive(buttonGroupSelector) {
+function toggleButtonActive(buttonGroupSelector, allowToggleOff = false) {
   document.querySelectorAll(buttonGroupSelector).forEach(group => {
     group.addEventListener('click', e => {
       if (e.target.tagName === 'BUTTON') {
+        if (allowToggleOff && e.target.classList.contains('bg-white')) {
+          e.target.classList.remove('bg-white', 'text-black');
+          return;
+        }
         [...group.children].forEach(btn => btn.classList.remove('bg-white', 'text-black'));
         e.target.classList.add('bg-white', 'text-black');
       }
@@ -30,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const volume = selectedVolumes[currentDrink];
     document.querySelectorAll('.volume-options button').forEach(btn => {
       btn.classList.remove('bg-white', 'text-black');
-      if (volume ? btn.dataset.volume === volume : btn === document.querySelector('.volume-options button')) {
+      if (volume && btn.dataset.volume === volume) {
         btn.classList.add('bg-white', 'text-black');
       }
     });
@@ -50,14 +54,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target === overlay) closeMenu();
   });
 
-  // Запоминание выбранного объёма в списке напитков
+  // Выбор объёма в списке напитков
   document.querySelectorAll('.price-options').forEach(group => {
     group.addEventListener('click', e => {
       if (e.target.tagName === 'BUTTON') {
         const row = group.closest('[data-drink]');
-        if (row) {
-          selectedVolumes[row.dataset.drink] = e.target.dataset.volume;
+        if (e.target.classList.contains('bg-white')) {
+          e.target.classList.remove('bg-white', 'text-black');
+          if (row) delete selectedVolumes[row.dataset.drink];
+          return;
         }
+        [...group.children].forEach(btn => btn.classList.remove('bg-white', 'text-black'));
+        e.target.classList.add('bg-white', 'text-black');
+        if (row) selectedVolumes[row.dataset.drink] = e.target.dataset.volume;
       }
     });
   });
@@ -67,8 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
   toggleButtonActive('.volume-options');
   toggleButtonActive('.syrup-options');
   toggleButtonActive('.place-options');
-  toggleButtonActive('.sugar-options');
-  toggleButtonActive('.price-options');
 
   // Сохранение объёма из подменю
   document.querySelector('.volume-options').addEventListener('click', e => {
@@ -77,20 +84,45 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Счётчик количества
-  const minus = document.querySelector('#minus');
-  const plus = document.querySelector('#plus');
-  const qty = document.querySelector('#quantity');
+  // Счётчик сахара
+  const sugarMinus = document.querySelector('#sugar-minus');
+  const sugarPlus = document.querySelector('#sugar-plus');
+  const sugarQty = document.querySelector('#sugar-count');
 
-  let count = 1;
-  qty.textContent = count;
+  let sugarCount = 1;
+  sugarQty.textContent = sugarCount;
 
-  minus.addEventListener('click', () => {
-    if (count > 1) qty.textContent = --count;
+  sugarMinus.addEventListener('click', () => {
+    if (sugarCount > 0) sugarQty.textContent = --sugarCount;
   });
 
-  plus.addEventListener('click', () => {
-    qty.textContent = ++count;
+  sugarPlus.addEventListener('click', () => {
+    sugarQty.textContent = ++sugarCount;
+  });
+
+  // Счётчик порций
+  const portionMinus = document.querySelector('#portion-minus');
+  const portionPlus = document.querySelector('#portion-plus');
+  const portionQty = document.querySelector('#portion-quantity');
+
+  let count = 1;
+  portionQty.textContent = count;
+
+  portionMinus.addEventListener('click', () => {
+    if (count > 1) portionQty.textContent = --count;
+  });
+
+  portionPlus.addEventListener('click', () => {
+    portionQty.textContent = ++count;
+  });
+
+  // Пролистывание списка сиропов
+  const syrupContainer = document.querySelector('.syrup-options');
+  document.getElementById('syrup-left')?.addEventListener('click', () => {
+    syrupContainer.scrollBy({ left: -100, behavior: 'smooth' });
+  });
+  document.getElementById('syrup-right')?.addEventListener('click', () => {
+    syrupContainer.scrollBy({ left: 100, behavior: 'smooth' });
   });
 
   // Кнопка "Добавить в заказ"
@@ -100,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const volume = document.querySelector('.volume-options .bg-white')?.textContent.trim();
     const syrup = document.querySelector('.syrup-options .bg-white')?.textContent.trim();
     const place = document.querySelector('.place-options .bg-white')?.textContent.trim();
-    const sugar = document.querySelector('.sugar-options .bg-white')?.textContent.trim();
+    const sugar = sugarQty.textContent;
 
     if (currentDrink) {
       selectedVolumes[currentDrink] = volume;
@@ -113,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
       сироп: syrup,
       где: place,
       сахар: sugar,
-      количество: count
+      порции: count
     };
 
     console.log('🛒 Заказ:', order);
