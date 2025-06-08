@@ -5,19 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Культура — Меню</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Nyght+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
-    @font-face {
-      font-family: 'Nyght_Serif';
-      src: url('/fonts/NyghtSerif-Regular.woff2') format('woff2');
-      font-weight: normal;
-      font-style: normal;
-    }
     body {
       font-family: 'Inter', sans-serif;
     }
     .font-nyght {
-      font-family: 'Nyght_Serif', serif;
+      font-family: 'Nyght Serif', serif;
     }
   </style>
 </head>
@@ -48,10 +42,74 @@
 
     <!-- Размер -->
     <div class="text-[10px] font-nyght mb-1 text-right">0.25 / 0.35 мл</div>
-    <div class="flex justify-end gap-2 mb-6">
+    <div class="flex justify-end gap-2 volume-options mb-6">
       <button class="px-4 py-1 rounded-full text-[10px] bg-neutral-800 text-white">180</button>
       <button class="px-4 py-1 rounded-full text-[10px] bg-white text-black">210</button>
     </div>
+
+    <!-- Молоко -->
+    <div class="text-[10px] font-nyght mb-1">Молоко</div>
+    <div class="flex flex-wrap gap-2 milk-options mb-4">
+      <button class="px-4 py-1 rounded-full text-[10px] bg-white text-black">Обычное</button>
+      <button class="px-4 py-1 rounded-full text-[10px] bg-neutral-800 text-white">Банановое</button>
+      <button class="px-4 py-1 rounded-full text-[10px] bg-neutral-800 text-white">Безлактозное</button>
+    </div>
+
+    <!-- Сиропы -->
+    <div class="text-[10px] font-nyght mb-1">Сиропы</div>
+    <div class="flex gap-2 overflow-x-auto pb-2 syrup-options mb-4">
+      <button class="px-4 py-1 rounded-full text-[10px] bg-neutral-800 text-white flex-shrink-0">Карамель</button>
+      <button class="px-4 py-1 rounded-full text-[10px] bg-neutral-800 text-white flex-shrink-0">Ваниль</button>
+      <button class="px-4 py-1 rounded-full text-[10px] bg-neutral-800 text-white flex-shrink-0">Орех</button>
+      <button class="px-4 py-1 rounded-full text-[10px] bg-neutral-800 text-white flex-shrink-0">Халва</button>
+    </div>
+
+    <!-- Где будете пить? -->
+    <div class="text-[10px] font-nyght mb-1">Где будете пить?</div>
+    <div class="flex gap-2 place-options mb-4">
+      <button class="px-4 py-1 rounded-full text-[10px] bg-white text-black">В зале</button>
+      <button class="px-4 py-1 rounded-full text-[10px] bg-neutral-800 text-white">С собой</button>
+    </div>
+
+    <!-- Сахар -->
+    <div class="text-[10px] font-nyght mb-1">Сахар</div>
+    <div class="flex gap-2 sugar-options mb-4">
+      <button class="px-4 py-1 rounded-full text-[10px] bg-neutral-800 text-white">Без сахара</button>
+      <button class="px-4 py-1 rounded-full text-[10px] bg-white text-black">1</button>
+      <button class="px-4 py-1 rounded-full text-[10px] bg-neutral-800 text-white">2</button>
+    </div>
+
+    <!-- Количество -->
+    <div class="text-[10px] font-nyght mb-1">Количество</div>
+    <div class="flex items-center gap-4 mb-6">
+      <button id="minus" class="px-2 py-1 rounded-full bg-neutral-800">-</button>
+      <span id="quantity" class="text-sm">1</span>
+      <button id="plus" class="px-2 py-1 rounded-full bg-neutral-800">+</button>
+    </div>
+
+    <div class="flex items-center justify-between mt-6">
+      <button id="add-to-order" class="flex items-center gap-2 border border-white px-4 py-2 rounded-full text-[10px] uppercase">
+        Добавить в заказ
+        <span class="text-lg">→</span>
+      </button>
+      <button class="text-2xl" aria-label="close">×</button>
+    </div>
+  </div>
+
+  <!-- Нижний бар -->
+  <div class="fixed bottom-0 left-0 right-0 bg-neutral-800 text-white flex justify-around py-2 text-xs">
+    <button class="flex flex-col items-center">
+      <span>💬</span>
+      <span>Чат</span>
+    </button>
+    <button class="flex flex-col items-center">
+      <span>🛒</span>
+      <span>Корзина</span>
+    </button>
+    <button class="flex flex-col items-center">
+      <span>f</span>
+      <span>Facebook</span>
+    </button>
   </div>
 </body>
 </html>
