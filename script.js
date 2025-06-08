@@ -60,7 +60,29 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => overlay.classList.add('hidden'), 300);
   }
 
-  drinkRows.forEach(row => row.addEventListener('click', () => openMenu(row)));
+  function resetMenuOptions() {
+    document
+      .querySelectorAll(
+        '.milk-options button, .volume-options button, .syrup-options button, .place-options button'
+      )
+      .forEach(btn => {
+        btn.classList.remove('bg-white', 'text-black');
+        btn.classList.add('bg-neutral-800', 'text-white');
+      });
+
+    sugarCount = 0;
+    sugarQty.textContent = sugarCount;
+    count = 1;
+    portionQty.textContent = count;
+    currentDrink = '';
+  }
+
+  drinkRows.forEach(row =>
+    row.addEventListener('click', e => {
+      if (e.target.tagName === 'BUTTON') return;
+      openMenu(row);
+    })
+  );
   closeBtn?.addEventListener('click', closeMenu);
   overlay?.addEventListener('click', e => {
     if (e.target === overlay) closeMenu();
@@ -78,6 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.classList.remove('bg-white', 'text-black');
         btn.classList.add('bg-neutral-800', 'text-white');
         if (row) delete selectedVolumes[row.dataset.drink];
+        resetMenuOptions();
         return;
       }
 
@@ -89,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.classList.remove('bg-neutral-800', 'text-white');
       btn.classList.add('bg-white', 'text-black');
       if (row) selectedVolumes[row.dataset.drink] = btn.dataset.volume;
+      if (row) openMenu(row);
     });
   });
 
@@ -142,12 +166,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Пролистывание списка сиропов
-  const syrupContainer = document.querySelector('.syrup-options');
+  const syrupContainer = document.querySelector('#syrup-list');
   document.getElementById('syrup-left')?.addEventListener('click', () => {
-    syrupContainer.scrollBy({ left: -100, behavior: 'smooth' });
+    syrupContainer.scrollLeft -= 100;
   });
   document.getElementById('syrup-right')?.addEventListener('click', () => {
-    syrupContainer.scrollBy({ left: 100, behavior: 'smooth' });
+    syrupContainer.scrollLeft += 100;
   });
 
   // Кнопка "Добавить в заказ"
@@ -175,5 +199,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log('🛒 Заказ:', order);
     alert('Заказ добавлен в консоль!');
+  });
+
+  // Полный сброс настроек
+  const resetBtn = document.getElementById('reset-button');
+  resetBtn.addEventListener('click', () => {
+    Object.keys(selectedVolumes).forEach(k => delete selectedVolumes[k]);
+    document.querySelectorAll('.price-options button').forEach(b => {
+      b.classList.remove('bg-white', 'text-black');
+      b.classList.add('bg-neutral-800', 'text-white');
+    });
+    resetMenuOptions();
+    closeMenu();
   });
 });
