@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Группы переключателей
   toggleButtonActive('.milk-options');
   toggleButtonActive('.volume-options');
+  toggleButtonActive('.syrup-options');
   toggleButtonActive('.place-options');
   toggleButtonActive('.sugar-options');
 
@@ -40,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
   addButton.addEventListener('click', () => {
     const milk = document.querySelector('.milk-options .bg-white')?.textContent.trim();
     const volume = document.querySelector('.volume-options .bg-white')?.textContent.trim();
+    const syrup = document.querySelector('.syrup-options .bg-white')?.textContent.trim();
     const place = document.querySelector('.place-options .bg-white')?.textContent.trim();
     const sugar = document.querySelector('.sugar-options .bg-white')?.textContent.trim();
 
@@ -47,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
       напиток: 'Капучино',
       молоко: milk,
       объём: volume,
+      сироп: syrup,
       где: place,
       сахар: sugar,
       количество: count
