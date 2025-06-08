@@ -89,11 +89,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const sugarPlus = document.querySelector('#sugar-plus');
   const sugarQty = document.querySelector('#sugar-count');
 
-  let sugarCount = 1;
+  let sugarCount = 0;
   sugarQty.textContent = sugarCount;
 
   sugarMinus.addEventListener('click', () => {
-    if (sugarCount > 0) sugarQty.textContent = --sugarCount;
+    if (sugarCount > 0) {
+      sugarQty.textContent = --sugarCount;
+    }
   });
 
   sugarPlus.addEventListener('click', () => {
@@ -109,7 +111,9 @@ document.addEventListener('DOMContentLoaded', () => {
   portionQty.textContent = count;
 
   portionMinus.addEventListener('click', () => {
-    if (count > 1) portionQty.textContent = --count;
+    if (count > 0) {
+      portionQty.textContent = --count;
+    }
   });
 
   portionPlus.addEventListener('click', () => {
